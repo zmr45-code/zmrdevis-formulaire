@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Devis gratuit | ZMR Fermeture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { primary: "#ec5b13", navy: "#0A1128" },
+        fontFamily: { display: ["Public Sans"] },
+        borderRadius: { "2xl": "1rem", "3xl": "1.5rem" },
+      },
+    },
+  };
+</script>
+<style>
+  body { background-color: #f8f6f6; font-family: 'Public Sans', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .product-card {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid #e9eef3;
+    background: white;
+  }
+  .product-card.selected {
+    border-color: #ec5b13;
+    background-color: #fff8f3;
+    box-shadow: 0 8px 20px rgba(236,91,19,0.08);
+  }
+  .step:not(.active) { display: none; }
+  .check-icon { transition: opacity 0.2s; }
+  .product-icon {
+    width: 56px;
+    height: 56px;
+    background: #f1f5f9;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+  }
+  .product-card.selected .product-icon {
+    background: #ec5b13;
+    color: white;
+  }
+</style>
+</head>
+<body class="bg-background-light font-display text-navy">
+
+<!-- Navigation -->
+<header class="flex items-center justify-between border-b border-slate-200 px-6 lg:px-40 py-4 bg-white">
+  <div class="flex items-center gap-3">
+    <div class="text-primary">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTID7uX--l1z-YZW4b9788IYExVm01nfNowMw&s" alt="ZMR Fermeture Logo" class="w-10 h-10 rounded-lg object-cover">
+    </div>
+    <div>
+      <h2 class="text-navy text-xl font-black leading-tight">ZMR FERMETURE</h2>
+      <span class="text-[10px] font-bold tracking-widest uppercase text-primary">Serrurier • Menuisier • Miroitier</span>
+    </div>
+  </div>
+  <a class="hidden lg:flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform" href="tel:+33783606678">
+    <span class="material-symbols-outlined text-sm">phone_in_talk</span> 07 83 60 66 78
+  </a>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 lg:py-16">
+  <!-- Badge et titre -->
+  <div class="text-center mb-10">
+    <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-white shadow-sm border border-slate-200 rounded-full px-4 py-1.5 text-sm font-medium text-navy mb-4">
+      <span class="material-symbols-outlined text-primary text-base">verified</span>
+      <span>Fabriqué en France 🇫🇷</span>
+      <span class="w-1 h-1 bg-slate-300 rounded-full mx-1 hidden sm:inline-block"></span>
+      <span class="flex items-center gap-1">⭐ 4.9/5 · 200 avis clients</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl font-black text-navy tracking-tight">Devis gratuit <span class="text-primary">et sans engagement</span></h1>
+    <p class="text-slate-500 text-lg mt-3">Choisissez vos produits, répondez à quelques questions, nous vous recontactons sous 24h.</p>
+  </div>
+
+  <!-- Formulaire -->
+  <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+    <div class="px-6 pt-8 pb-2 border-b border-slate-100">
+      <h2 class="text-2xl font-bold text-navy">Quel(s) produit(s) vous intéresse ?</h2>
+      <p class="text-slate-500 text-sm mt-1">Plusieurs choix possibles</p>
+    </div>
+
+    <form id="devisForm">
+      <!-- Étape 1 : produits -->
+      <div id="step1" class="step active px-6 pb-6">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-6">
+          <!-- Fenêtre & Porte-fenêtre -->
+          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Fenêtre & Porte-fenêtre">
+            <div class="product-icon text-primary">
+              <span class="material-symbols-outlined text-2xl md:text-3xl">window</span>
+            </div>
+            <span class="font-bold text-navy text-sm md:text-base">Fenêtre &<br>Porte-fenêtre</span>
+            <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
+          </div>
+          <!-- Porte d'entrée -->
+          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Porte d'entrée">
+            <div class="product-icon text-primary">
+              <span class="material-symbols-outlined text-2xl md:text-3xl">door_front</span>
+            </div>
+            <span class="font-bold text-navy text-sm md:text-base">Porte d'entrée</span>
+            <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
+          </div>
+          <!-- Volet & Protection -->
+          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Volet & Protection">
+            <div class="product-icon text-primary">
+              <span class="material-symbols-outlined text-2xl md:text-3xl">roller_shades</span>
+            </div>
+            <span class="font-bold text-navy text-sm md:text-base">Volet & Protection</span>
+            <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
+          </div>
+          <!-- Store & Pergola -->
+          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Store & Pergola">
+            <div class="product-icon text-primary">
+              <span class="material-symbols-outlined text-2xl md:text-3xl">deck</span>
+            </div>
+            <span class="font-bold text-navy text-sm md:text-base">Store & Pergola</span>
+            <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
+          </div>
+          <!-- Porte de garage -->
+          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Porte de garage">
+            <div class="product-icon text-primary">
+              <span class="material-symbols-outlined text-2xl md:text-3xl">garage</span>
+            </div>
+            <span class="font-bold text-navy text-sm md:text-base">Porte de garage</span>
+            <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
+          </div>
+          <!-- Portail -->
+          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Portail">
+            <div class="product-icon text-primary">
+              <span class="material-symbols-outlined text-2xl md:text-3xl">gate</span>
+            </div>
+            <span class="font-bold text-navy text-sm md:text-base">Portail</span>
+            <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
+          </div>
+        </div>
+        <div id="productError" class="text-red-500 text-sm mt-4 hidden">Veuillez sélectionner au moins un produit.</div>
+        <div class="mt-8 flex justify-end">
+          <button type="button" id="nextStepBtn" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-primary/30 transition-all inline-flex items-center gap-2">
+            Suivant <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Étape 2 : coordonnées -->
+      <div id="step2" class="step px-6 pb-8">
+        <h3 class="text-xl font-bold text-navy mb-6">Vos coordonnées pour recevoir votre devis</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Civilité *</label>
+            <div class="flex gap-4">
+              <label class="inline-flex items-center"><input type="radio" name="civilite" value="M." class="accent-primary"> <span class="ml-2">M.</span></label>
+              <label class="inline-flex items-center"><input type="radio" name="civilite" value="Mme" class="accent-primary"> <span class="ml-2">Mme</span></label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Nom complet *</label>
+            <input type="text" name="nom" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Téléphone *</label>
+            <input type="tel" name="tel" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Email *</label>
+            <input type="email" name="email" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Code postal *</label>
+            <input type="text" name="cp" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Ville *</label>
+            <input type="text" name="ville" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-slate-700 mb-1">Message / précisions (optionnel)</label>
+            <textarea name="message" rows="3" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Dimensions, matériaux, etc."></textarea>
+          </div>
+        </div>
+        <div class="flex justify-between mt-8">
+          <button type="button" id="prevStepBtn" class="bg-white border border-slate-300 text-navy font-medium py-2.5 px-6 rounded-full hover:bg-slate-50 transition-all">Retour</button>
+          <button type="submit" class="bg-primary hover:bg-primary/90 text-white font-bold py-2.5 px-8 rounded-full shadow-lg shadow-primary/30 transition-all">Envoyer ma demande</button>
+        </div>
+      </div>
+
+      <div id="formMessage" class="px-6 pb-6 hidden"></div>
+    </form>
+  </div>
+
+  <!-- Section engagements style Lorenove (ajoutée) -->
+  <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <div>
+      <span class="material-symbols-outlined text-3xl text-primary">support_agent</span>
+      <h3 class="font-bold text-navy text-lg mt-3">Suivi sur-mesure</h3>
+      <p class="text-slate-500 text-sm">Un conseiller à chaque étape</p>
+    </div>
+    <div>
+      <span class="material-symbols-outlined text-3xl text-primary">build</span>
+      <h3 class="font-bold text-navy text-lg mt-3">Installation experte</h3>
+      <p class="text-slate-500 text-sm">Pose maîtrisée par nos équipes</p>
+    </div>
+    <div>
+      <span class="material-symbols-outlined text-3xl text-primary">history</span>
+      <h3 class="font-bold text-navy text-lg mt-3">Savoir-faire historique</h3>
+      <p class="text-slate-500 text-sm">Une expertise de plus de 80 ans</p>
+    </div>
+  </div>
+
+  <!-- Pied de page -->
+  <div class="mt-10 text-center text-sm text-slate-500 border-t border-slate-200 pt-8">
+    <div class="flex flex-wrap justify-center gap-6">
+      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">verified</span> Devis gratuit</span>
+      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">schedule</span> Réponse sous 24h</span>
+      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">shield</span> Garantie décennale</span>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Gestion des cartes produits
+  const cards = document.querySelectorAll('.product-card');
+  let selectedProducts = [];
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const product = card.getAttribute('data-product');
+      const checkIcon = card.querySelector('.check-icon');
+      if (card.classList.contains('selected')) {
+        card.classList.remove('selected');
+        selectedProducts = selectedProducts.filter(p => p !== product);
+        if (checkIcon) checkIcon.style.opacity = '0';
+      } else {
+        card.classList.add('selected');
+        selectedProducts.push(product);
+        if (checkIcon) checkIcon.style.opacity = '1';
+      }
+    });
+  });
+
+  // Navigation entre étapes
+  const step1 = document.getElementById('step1');
+  const step2 = document.getElementById('step2');
+  const nextBtn = document.getElementById('nextStepBtn');
+  const prevBtn = document.getElementById('prevStepBtn');
+  const errorDiv = document.getElementById('productError');
+
+  nextBtn.addEventListener('click', () => {
+    if (selectedProducts.length === 0) {
+      errorDiv.classList.remove('hidden');
+      return;
+    }
+    errorDiv.classList.add('hidden');
+    step1.classList.remove('active');
+    step2.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.bg-white').offsetTop - 80, behavior: 'smooth' });
+  });
+
+  prevBtn.addEventListener('click', () => {
+    step2.classList.remove('active');
+    step1.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.bg-white').offsetTop - 80, behavior: 'smooth' });
+  });
+
+  // Soumission vers Google Sheets (remplacer SCRIPT_URL)
+  const form = document.getElementById('devisForm');
+  const msgDiv = document.getElementById('formMessage');
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzVOTRE_ID/exec'; // À remplacer
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const nom = form.querySelector('input[name="nom"]').value.trim();
+    const tel = form.querySelector('input[name="tel"]').value.trim();
+    const email = form.querySelector('input[name="email"]').value.trim();
+    const cp = form.querySelector('input[name="cp"]').value.trim();
+    const ville = form.querySelector('input[name="ville"]').value.trim();
+    const civilite = form.querySelector('input[name="civilite"]:checked')?.value || '';
+    if (!nom || !tel || !email || !cp || !ville || !civilite) {
+      alert('Veuillez remplir tous les champs obligatoires.');
+      return;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerText;
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Envoi...';
+
+    const formData = new FormData();
+    formData.append('produits', selectedProducts.join(', '));
+    formData.append('civilite', civilite);
+    formData.append('nom', nom);
+    formData.append('tel', tel);
+    formData.append('email', email);
+    formData.append('cp', cp);
+    formData.append('ville', ville);
+    formData.append('message', form.querySelector('textarea[name="message"]')?.value || '');
+    formData.append('timestamp', new Date().toISOString());
+
+    try {
+      await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData });
+      msgDiv.classList.remove('hidden');
+      msgDiv.innerHTML = '<div class="bg-green-100 text-green-700 p-4 rounded-2xl text-center"><strong>✓ Demande envoyée !</strong><br>Nous vous recontactons sous 24h avec un devis personnalisé.</div>';
+      form.reset();
+      cards.forEach(c => c.classList.remove('selected'));
+      selectedProducts = [];
+      step2.classList.remove('active');
+      step1.classList.add('active');
+      document.querySelectorAll('.check-icon').forEach(icon => icon.style.opacity = '0');
+    } catch (error) {
+      msgDiv.classList.remove('hidden');
+      msgDiv.innerHTML = '<div class="bg-red-100 text-red-700 p-4 rounded-2xl text-center"><strong>Erreur réseau</strong><br>Veuillez réessayer ou nous appeler directement.</div>';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerText = originalText;
+      setTimeout(() => msgDiv.classList.add('hidden'), 6000);
+    }
+  });
+</script>
+</body>
+</html>
