@@ -6,7 +6,7 @@
 <title>Devis gratuit | ZMR Fermeture</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet"/>
 <script>
   tailwind.config = {
     theme: {
@@ -49,11 +49,22 @@
     background: #ec5b13;
     color: white;
   }
+  .step-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #ec5b13;
+    display: inline-block;
+    letter-spacing: -0.01em;
+  }
+  @media (max-width: 640px) {
+    .step-title { font-size: 1.5rem; }
+  }
 </style>
 </head>
 <body class="bg-background-light font-display text-navy">
 
-<!-- Navigation -->
 <header class="flex items-center justify-between border-b border-slate-200 px-6 lg:px-40 py-4 bg-white">
   <div class="flex items-center gap-3">
     <div class="text-primary">
@@ -70,7 +81,6 @@
 </header>
 
 <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 lg:py-16">
-  <!-- Badge et titre -->
   <div class="text-center mb-10">
     <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-white shadow-sm border border-slate-200 rounded-full px-4 py-1.5 text-sm font-medium text-navy mb-4">
       <span class="material-symbols-outlined text-primary text-base">verified</span>
@@ -82,62 +92,38 @@
     <p class="text-slate-500 text-lg mt-3">Choisissez vos produits, répondez à quelques questions, nous vous recontactons sous 24h.</p>
   </div>
 
-  <!-- Formulaire -->
   <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
-    <div class="px-6 pt-8 pb-2 border-b border-slate-100">
-      <h2 class="text-2xl font-bold text-navy">Quel(s) produit(s) vous intéresse ?</h2>
-      <p class="text-slate-500 text-sm mt-1">Plusieurs choix possibles</p>
-    </div>
-
     <form id="devisForm">
       <!-- Étape 1 : produits -->
-      <div id="step1" class="step active px-6 pb-6">
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-6">
-          <!-- Fenêtre & Porte-fenêtre -->
+      <div id="step1" class="step active px-6 pb-6 pt-6">
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Fenêtre & Porte-fenêtre">
-            <div class="product-icon text-primary">
-              <span class="material-symbols-outlined text-2xl md:text-3xl">window</span>
-            </div>
+            <div class="product-icon text-primary"><span class="material-symbols-outlined text-2xl md:text-3xl">window</span></div>
             <span class="font-bold text-navy text-sm md:text-base">Fenêtre &<br>Porte-fenêtre</span>
             <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
           </div>
-          <!-- Porte d'entrée -->
           <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Porte d'entrée">
-            <div class="product-icon text-primary">
-              <span class="material-symbols-outlined text-2xl md:text-3xl">door_front</span>
-            </div>
+            <div class="product-icon text-primary"><span class="material-symbols-outlined text-2xl md:text-3xl">door_front</span></div>
             <span class="font-bold text-navy text-sm md:text-base">Porte d'entrée</span>
             <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
           </div>
-          <!-- Volet & Protection -->
-          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Volet & Protection">
-            <div class="product-icon text-primary">
-              <span class="material-symbols-outlined text-2xl md:text-3xl">roller_shades</span>
-            </div>
-            <span class="font-bold text-navy text-sm md:text-base">Volet & Protection</span>
+          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Volet & Store">
+            <div class="product-icon text-primary"><span class="material-symbols-outlined text-2xl md:text-3xl">roller_shades</span></div>
+            <span class="font-bold text-navy text-sm md:text-base">Volet & Store</span>
             <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
           </div>
-          <!-- Store & Pergola -->
-          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Store & Pergola">
-            <div class="product-icon text-primary">
-              <span class="material-symbols-outlined text-2xl md:text-3xl">deck</span>
-            </div>
-            <span class="font-bold text-navy text-sm md:text-base">Store & Pergola</span>
+          <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Pergola">
+            <div class="product-icon text-primary"><span class="material-symbols-outlined text-2xl md:text-3xl">roofing</span></div>
+            <span class="font-bold text-navy text-sm md:text-base">Pergola</span>
             <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
           </div>
-          <!-- Porte de garage -->
           <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Porte de garage">
-            <div class="product-icon text-primary">
-              <span class="material-symbols-outlined text-2xl md:text-3xl">garage</span>
-            </div>
+            <div class="product-icon text-primary"><span class="material-symbols-outlined text-2xl md:text-3xl">garage</span></div>
             <span class="font-bold text-navy text-sm md:text-base">Porte de garage</span>
             <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
           </div>
-          <!-- Portail -->
           <div class="product-card rounded-2xl p-4 md:p-5 flex flex-col items-center text-center" data-product="Portail">
-            <div class="product-icon text-primary">
-              <span class="material-symbols-outlined text-2xl md:text-3xl">gate</span>
-            </div>
+            <div class="product-icon text-primary"><span class="material-symbols-outlined text-2xl md:text-3xl">gate</span></div>
             <span class="font-bold text-navy text-sm md:text-base">Portail</span>
             <div class="mt-2 check-icon opacity-0 text-primary font-bold text-sm">✓</div>
           </div>
@@ -151,39 +137,32 @@
       </div>
 
       <!-- Étape 2 : coordonnées -->
-      <div id="step2" class="step px-6 pb-8">
-        <h3 class="text-xl font-bold text-navy mb-6">Vos coordonnées pour recevoir votre devis</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Civilité *</label>
-            <div class="flex gap-4">
-              <label class="inline-flex items-center"><input type="radio" name="civilite" value="M." class="accent-primary"> <span class="ml-2">M.</span></label>
-              <label class="inline-flex items-center"><input type="radio" name="civilite" value="Mme" class="accent-primary"> <span class="ml-2">Mme</span></label>
-            </div>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Nom complet *</label>
-            <input type="text" name="nom" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+      <div id="step2" class="step px-6 pb-8 pt-6">
+        <h3 class="step-title">Vos coordonnées pour recevoir votre devis</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
+          <div class="md:col-span-2">
+            <label class="block text-sm font-medium text-slate-700 mb-1">Nom & Prénom *</label>
+            <input type="text" name="nom" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
           </div>
           <div>
             <label class="block text-sm font-medium text-slate-700 mb-1">Téléphone *</label>
-            <input type="tel" name="tel" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+            <input type="tel" name="tel" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
           </div>
           <div>
             <label class="block text-sm font-medium text-slate-700 mb-1">Email *</label>
-            <input type="email" name="email" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+            <input type="email" name="email" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Code postal *</label>
-            <input type="text" name="cp" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+            <label class="block text-sm font-medium text-slate-700 mb-1">Ville *</label>
+            <input type="text" name="ville" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
           </div>
           <div>
             <label class="block text-sm font-medium text-slate-700 mb-1">Adresse *</label>
-            <input type="text" name="ville" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none">
+            <input type="text" name="adresse" required class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
           </div>
           <div class="md:col-span-2">
             <label class="block text-sm font-medium text-slate-700 mb-1">Message / précisions (optionnel)</label>
-            <textarea name="message" rows="3" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Dites-nous en plus sur votre projet ?"></textarea>
+            <textarea name="message" rows="3" class="w-full border border-slate-200 rounded-xl px-4 py-2.5 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Dites-nous en plus sur votre projet ?"></textarea>
           </div>
         </div>
         <div class="flex justify-between mt-8">
@@ -196,26 +175,12 @@
     </form>
   </div>
 
-  <!-- Section engagements style Lorenove (ajoutée) -->
   <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-    <div>
-      <span class="material-symbols-outlined text-3xl text-primary">support_agent</span>
-      <h3 class="font-bold text-navy text-lg mt-3">Suivi sur-mesure</h3>
-      <p class="text-slate-500 text-sm">Un conseiller à chaque étape</p>
-    </div>
-    <div>
-      <span class="material-symbols-outlined text-3xl text-primary">build</span>
-      <h3 class="font-bold text-navy text-lg mt-3">Installation experte</h3>
-      <p class="text-slate-500 text-sm">Pose maîtrisée par nos équipes</p>
-    </div>
-    <div>
-      <span class="material-symbols-outlined text-3xl text-primary">history</span>
-      <h3 class="font-bold text-navy text-lg mt-3">Savoir-faire historique</h3>
-      <p class="text-slate-500 text-sm">Une expertise de plus de 16 ans</p>
-    </div>
+    <div><span class="material-symbols-outlined text-3xl text-primary">support_agent</span><h3 class="font-bold text-navy text-lg mt-3">Suivi sur-mesure</h3><p class="text-slate-500 text-sm">Un conseiller à chaque étape</p></div>
+    <div><span class="material-symbols-outlined text-3xl text-primary">build</span><h3 class="font-bold text-navy text-lg mt-3">Installation experte</h3><p class="text-slate-500 text-sm">Pose maîtrisée par nos équipes</p></div>
+    <div><span class="material-symbols-outlined text-3xl text-primary">history</span><h3 class="font-bold text-navy text-lg mt-3">Savoir-faire historique</h3><p class="text-slate-500 text-sm">Une expertise de plus de 16 ans</p></div>
   </div>
 
-  <!-- Pied de page -->
   <div class="mt-10 text-center text-sm text-slate-500 border-t border-slate-200 pt-8">
     <div class="flex flex-wrap justify-center gap-6">
       <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">verified</span> Devis gratuit</span>
@@ -226,7 +191,7 @@
 </main>
 
 <script>
-  // Gestion des cartes produits
+  // Gestion des produits
   const cards = document.querySelectorAll('.product-card');
   let selectedProducts = [];
 
@@ -246,7 +211,7 @@
     });
   });
 
-  // Navigation entre étapes
+  // Navigation
   const step1 = document.getElementById('step1');
   const step2 = document.getElementById('step2');
   const nextBtn = document.getElementById('nextStepBtn');
@@ -270,21 +235,42 @@
     window.scrollTo({ top: document.querySelector('.bg-white').offsetTop - 80, behavior: 'smooth' });
   });
 
-  // Soumission vers Google Sheets (remplacer SCRIPT_URL)
+  // === CONNEXION DIRECTE À GOOGLE FORMS ===
   const form = document.getElementById('devisForm');
   const msgDiv = document.getElementById('formMessage');
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzVOTRE_ID/exec'; // À remplacer
+
+  // URL de soumission du formulaire Google Forms (formResponse)
+  const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeb9V8MNA4W7hCLzG7YyMxUDSORybEZslbvO5ca4Nq6qiUlVg/formResponse';
+
+  // Correspondance champs HTML → entry Google Forms
+  const fieldMapping = {
+    produits: 'entry.652178034',
+    nom: 'entry.399272584',
+    tel: 'entry.1766740776',
+    email: 'entry.539903668',
+    ville: 'entry.737001597',
+    adresse: 'entry.1697590230',
+    message: 'entry.963115807'
+  };
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // Récupération des valeurs
     const nom = form.querySelector('input[name="nom"]').value.trim();
     const tel = form.querySelector('input[name="tel"]').value.trim();
     const email = form.querySelector('input[name="email"]').value.trim();
-    const cp = form.querySelector('input[name="cp"]').value.trim();
     const ville = form.querySelector('input[name="ville"]').value.trim();
-    const civilite = form.querySelector('input[name="civilite"]:checked')?.value || '';
-    if (!nom || !tel || !email || !cp || !ville || !civilite) {
-      alert('Veuillez remplir tous les champs obligatoires.');
+    const adresse = form.querySelector('input[name="adresse"]').value.trim();
+    const message = form.querySelector('textarea[name="message"]').value.trim();
+
+    if (!nom || !tel || !email || !ville || !adresse) {
+      alert('Veuillez remplir tous les champs obligatoires (Nom & Prénom, Téléphone, Email, Ville, Adresse).');
+      return;
+    }
+
+    if (selectedProducts.length === 0) {
+      alert('Veuillez sélectionner au moins un produit avant d’envoyer.');
       return;
     }
 
@@ -293,34 +279,49 @@
     submitBtn.disabled = true;
     submitBtn.innerText = 'Envoi...';
 
+    // Construction des données à envoyer
     const formData = new FormData();
-    formData.append('produits', selectedProducts.join(', '));
-    formData.append('civilite', civilite);
-    formData.append('nom', nom);
-    formData.append('tel', tel);
-    formData.append('email', email);
-    formData.append('cp', cp);
-    formData.append('ville', ville);
-    formData.append('message', form.querySelector('textarea[name="message"]')?.value || '');
-    formData.append('timestamp', new Date().toISOString());
+    formData.append(fieldMapping.produits, selectedProducts.join(', '));
+    formData.append(fieldMapping.nom, nom);
+    formData.append(fieldMapping.tel, tel);
+    formData.append(fieldMapping.email, email);
+    formData.append(fieldMapping.ville, ville);
+    formData.append(fieldMapping.adresse, adresse);
+    formData.append(fieldMapping.message, message);
 
     try {
-      await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: formData });
+      // Envoi vers Google Forms avec mode 'no-cors' (impossible de lire la réponse, mais l'envoi fonctionne)
+      await fetch(GOOGLE_FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      });
+
+      // Google Forms répondra avec une page de confirmation, mais nous ne pouvons pas l'intercepter.
+      // On considère que c'est un succès.
       msgDiv.classList.remove('hidden');
       msgDiv.innerHTML = '<div class="bg-green-100 text-green-700 p-4 rounded-2xl text-center"><strong>✓ Demande envoyée !</strong><br>Nous vous recontactons sous 24h avec un devis personnalisé.</div>';
+      
+      // Réinitialisation du formulaire
       form.reset();
       cards.forEach(c => c.classList.remove('selected'));
       selectedProducts = [];
+      document.querySelectorAll('.check-icon').forEach(icon => icon.style.opacity = '0');
+      
+      // Revenir à l'étape 1
       step2.classList.remove('active');
       step1.classList.add('active');
-      document.querySelectorAll('.check-icon').forEach(icon => icon.style.opacity = '0');
+      
+      // Nettoyer le message après 6 secondes
+      setTimeout(() => msgDiv.classList.add('hidden'), 6000);
     } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
       msgDiv.classList.remove('hidden');
       msgDiv.innerHTML = '<div class="bg-red-100 text-red-700 p-4 rounded-2xl text-center"><strong>Erreur réseau</strong><br>Veuillez réessayer ou nous appeler directement.</div>';
+      setTimeout(() => msgDiv.classList.add('hidden'), 6000);
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerText = originalText;
-      setTimeout(() => msgDiv.classList.add('hidden'), 6000);
     }
   });
 </script>
